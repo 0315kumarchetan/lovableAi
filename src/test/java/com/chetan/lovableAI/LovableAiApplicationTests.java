@@ -1,0 +1,13 @@
+package com.chetan.lovableAI;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+class LovableAiApplicationTests {
+
+	@Test
+	void contextLoads() {
+	}
+
+}
