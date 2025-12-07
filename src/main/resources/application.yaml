@@ -1,4 +1,22 @@
+server:
+  port: 8081
 spring:
   application:
     name: lovableAI
     description: lovableAI clone
+  datasource:
+    url: jdbc:postgresql://localhost:5432/lovable
+    username: postgres
+    password: 12345678
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+
+

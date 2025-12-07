@@ -1,12 +1,40 @@
 package com.chetan.lovableAI.controller;
 
+import com.chetan.lovableAI.dto.auth.AuthResponse;
+import com.chetan.lovableAI.dto.auth.LoginRequest;
+import com.chetan.lovableAI.dto.auth.SignupRequest;
+import com.chetan.lovableAI.dto.auth.UserProfileResponse;
+import com.chetan.lovableAI.service.AuthService;
+import com.chetan.lovableAI.service.UserService;
+import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import lombok.experimental.FieldDefaults;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/auth")
+@FieldDefaults(makeFinal = true,level = AccessLevel.PRIVATE)
 public class AuthController {
-    
+
+    AuthService authService;
+    UserService userService;
+
+    @PostMapping("/signup")
+    public ResponseEntity<AuthResponse> signup(@RequestBody SignupRequest request){
+        return ResponseEntity.ok(authService.signup(request));
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity<AuthResponse> login(@RequestBody LoginRequest request){
+        return ResponseEntity.ok(authService.login(request));
+    }
+
+    @GetMapping("/me")
+    public ResponseEntity<UserProfileResponse> getProfile(){
+        Long userId = 1L;
+        return ResponseEntity.ok(userService.getProfile(userId));
+    }
+
 }
