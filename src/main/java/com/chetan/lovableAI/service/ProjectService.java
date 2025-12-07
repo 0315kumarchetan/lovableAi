@@ -5,8 +5,11 @@ import com.chetan.lovableAI.dto.project.ProjectResponse;
 import com.chetan.lovableAI.dto.project.ProjectSummaryResponse;
 import org.jspecify.annotations.Nullable;
 
+import java.util.List;
+
 public interface ProjectService {
-    @Nullable ProjectSummaryResponse getUserProject(Long userId);
+    @Nullable
+    List<ProjectSummaryResponse> getUserProjects(Long userId);
 
     @Nullable ProjectResponse getUserProjectById(Long id);
 

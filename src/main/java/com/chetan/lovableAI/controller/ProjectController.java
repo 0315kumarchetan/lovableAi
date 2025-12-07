@@ -10,6 +10,8 @@ import lombok.experimental.FieldDefaults;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/projects")
 @FieldDefaults(makeFinal = true,level = AccessLevel.PRIVATE)
@@ -19,9 +21,9 @@ public class ProjectController {
     ProjectService projectService;
 
     @GetMapping()
-    public ResponseEntity<ProjectSummaryResponse> getMyProject(){
+    public ResponseEntity<List<ProjectSummaryResponse>> getMyProjects(){
         Long userId = 1L;
-        return ResponseEntity.ok(projectService.getUserProject(userId));
+        return ResponseEntity.ok(projectService.getUserProjects(userId));
     }
 
     @GetMapping("/{id}")

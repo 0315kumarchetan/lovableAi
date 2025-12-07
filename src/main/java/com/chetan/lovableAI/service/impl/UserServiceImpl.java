@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 public class UserServiceImpl implements UserService {
     @Override
     public UserProfileResponse getProfile(Long userId) {
+
         return null;
     }
 }
